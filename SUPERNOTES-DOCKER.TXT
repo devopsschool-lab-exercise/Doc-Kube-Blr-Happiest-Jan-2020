@@ -530,7 +530,36 @@ Lazy WAY - Using Existing Container
 
 AUtomated Way - Using Dockerfile
 
+FROM ubuntu
+MAINTAINER Rajesh Kumar DevopS@Rajeshkumar.xyz
+RUN apt-get update 
+RUN apt-get install git -y
+
+docker build -t new-image .
+
+
+jenkins
+    openjdk:8-jdk
+        buildpack-deps:stretch-scm
+                buildpack-deps:stretch-curl
+                    debian:stretch
+                            scratch
 
 
 
+FROM ubuntu
+MAINTAINER Rajesh Kumar DevopS@Rajeshkumar.xyz
+RUN touch /opt/rajesh1.txt && touch /opt/rajesh3.txt && touch /opt/rajesh2.tx
+RUN touch /opt/rajesh4.txt
+
+docker build -f doc1 -t new1 .
+
+
+
+
+TROUBLESHOOTING
+https://www.devopsschool.com/blog/docker-error-requires-container-selinux-22-74/
+
+
+https://www.devopsschool.com/videos/
 
