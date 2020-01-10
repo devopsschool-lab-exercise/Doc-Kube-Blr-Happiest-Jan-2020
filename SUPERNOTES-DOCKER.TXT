@@ -415,3 +415,122 @@ https://www.devopsschool.com/notes/docker/2019/
 
 PUTTY - 	rajesh-mumbai.ppk
 SSH - 	rajesh-mumbai.pem
+
+==============================================
+UNDERSTANDING A IMAGE ANATOMY
+
+  289  cd /var/lib/
+  290  cd docker
+  291  clear
+  292  ls
+  293  cd overlay2/
+  294  ls
+  295  docker inspect ubuntu
+  296  clear
+  297  ls
+  298  du --sh --max-depth=1
+  299  du -sh --max-depth=1
+  300  du -s --max-depth=1
+  301  du -h --max-depth=1
+  302  clear
+  303  du -h --max-depth=1
+  304  cd ./f50968ffd1f2a7829071812ba67920814891d03151b36f173afab664c88faa29
+  305  ls
+  306  clear
+  307  ls
+  308  cd diff/
+  309  clear
+  310  ls
+  311  cd ..
+  312  ls
+  313  cd ..
+  314  ls
+  315  clear
+  316  du -h --max-depth=1
+  317  cd ./f35bf180baaea3d1d4079c19e42f2add606214c90a3c734a56653c1ea85083b7
+  318  ls
+  319  cd diff/
+  320  ls
+  321  cd run/
+  322  ls
+  323  cd systemd/
+  324  ls
+  325  clear
+  326  ls
+  327  more container
+  328  cd ..
+  329  ls
+  330  cd ..
+  331  ls
+  332  cd ..
+  333  ls
+  334  cd ..
+  335  clear
+  336  ls
+  337  pwd
+  338  docker history ubuntu
+  339  clear
+  340  ls
+  341  clear
+  342  df -kh
+  343  docker run -itd ubuntu
+  344  docker ps
+  345  ls
+  346  df -kh
+  347  docker run -itd ubuntu
+  348  df -kh
+  349  ls
+  350  cd ..
+  351  ls
+  352  cd containers/
+  353  ls
+  354  ddf -kh
+  355  df -kh
+  356  cleatr
+  357  clear
+  358  ls
+  359  cd ..
+  360  ls
+  361  cd overlay2/
+  362  clear
+  363  ls
+  364  docker ps -a
+  365  docker stop  d0f77b11eb9c bb9861e9f15d
+  366  clear
+  367  ls
+  368  df -kh
+  369  clear
+  370  ls
+
+
+How to create docker image?
+Lazy WAY - Using Existing Container
+ 382  docker ps
+  383  docker exec -it d0f77b11eb9c /bin/bash
+  384  clear
+  385  docker ps
+  386  docker exec d0f77b11eb9c git
+  387  clear
+  388  git
+  389  docker exec d0f77b11eb9c git
+  390  clear
+  391  docker exec d0f77b11eb9c git
+  392  clear
+  393  ls
+  394  docker images
+  395  docker ps
+  396  docker commit -a "Rajeshkumar" -m"ub-git-up" d0f77b11eb9c ub-git-up
+  397  docker images
+  398  docker history ubuntu
+  399  docker history ub-git-up
+  400  docker run -itd ubuntu
+  401  docker run -itd ub-git-up
+  402  docker ps -a
+
+
+AUtomated Way - Using Dockerfile
+
+
+
+
+
