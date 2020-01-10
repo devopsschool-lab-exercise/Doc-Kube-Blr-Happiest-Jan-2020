@@ -407,3 +407,11 @@ Doc-Kube-Blr-Happiest-Jan-2020
 27 13.233.23.6
 28 13.235.49.122
 29 35.154.221.233
+
+ec2-user
+
+KEY
+https://www.devopsschool.com/notes/docker/2019/
+
+PUTTY - 	rajesh-mumbai.ppk
+SSH - 	rajesh-mumbai.pem
