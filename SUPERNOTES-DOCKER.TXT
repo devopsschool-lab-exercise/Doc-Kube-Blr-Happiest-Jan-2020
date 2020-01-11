@@ -719,3 +719,103 @@ docker tag new1 625097054767.dkr.ecr.ap-south-1.amazonaws.com/happy:latest
 27 15.206.74.199
 28 13.232.22.151
 29 13.127.3.237
+
+========================================
+Deepdive into Docker Networks
+==============================================
+- BRDIGE
+- Host
+- null
+===============================
+
+
+[root@ip-172-31-14-237 ec2-user]# docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+1d9a9d13fe83        bridge              bridge              local
+6bd93fd88eab        host                host                local
+133af4ffe4f9        none                null                local
+[root@ip-172-31-14-237 ec2-user]#
+
+"172.17.0.0/16"
+
+DEV - 172.18.0.1
+DEFAUKT - 172.17.0.1
+
+  466  docker network ls
+  467  docker inspect 1d9a9d13fe83
+  468  clear
+  469  ls
+  470  ifconfig
+  471  clear
+  472  l
+  473  docker inspect 1d9a9d13fe83
+  474  clear
+  475  ls
+  476  docker network ls
+  477  docker inspect 1d9a9d13fe83
+  478  clear
+  479  ls
+  480  ifconfig
+  481  clear
+  482  docker run -itd ubuntu
+  483  docker ps
+  484  docker inspect 5348a6876d5f
+  485  ifconfig
+  486  docker ps
+  487  docker attach 5348a6876d5f
+  488  docker network ls
+  489  clear
+  490  docker help network
+  491  docker network create dev --driver=bridge
+  492  docker network ls
+  493  docker inspect a72a80fa89d7
+  494  clear
+  495  docker network ls
+  496  docker run -itd --net=dev ubuntu
+  497  docker ps
+  498  docker rename c5df33f037a4 dev-network
+  499  docker rename 5348a6876d5f brdige-network
+  500  clear
+  501  docker ps
+  502  docker inspect c5df33f037a4
+  503  clear
+  504  docker ps
+  505  ifconfig
+  506  docker ps
+  507  clear
+  508  ifconfig
+  509  clear
+  510  docker ps
+  511  docker inspect c5df33f037a4
+  512  clear
+  513  ls
+  514  docker ps
+  515  docker attach 5348a6876d5f
+  516  history
+
+
+  464  docker ps -a
+  465  clear
+  466  ifconfig
+  467  docker network ls
+  468  docker network rm a72a80fa89d7
+  469  clear
+  470  docker network ls
+  471  ifconfig
+  472  clear
+  473  docker run -itd --net=host ubuntu
+  474  docker ps
+  475  clear
+  476  ifconfig
+  477  clear
+  478  docker ps
+  479  docker attach 2f9b32b99db2
+  480  docker run -itd --net=none ubuntu
+  481  docker ps
+  482  docker inspect 3d122f6cffb1
+  483  docker ps
+  484  docker inspect 2f9b32b99db2
+  485  history
+
+Notes -
+https://www.devopsschool.com/notes/docker/commands-collections/docker-networking.txt
