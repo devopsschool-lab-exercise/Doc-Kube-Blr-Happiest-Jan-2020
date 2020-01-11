@@ -819,3 +819,134 @@ DEFAUKT - 172.17.0.1
 
 Notes -
 https://www.devopsschool.com/notes/docker/commands-collections/docker-networking.txt
+
+LAB - 
+https://www.devopsschool.com/tutorial/docker/labs/docker/docker-lab-6-link.html
+
+Demo of Compose
+=======================
+
+  458  ls
+  459  docker-compose
+  460  cd
+  461  ls
+  462  sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  463  docker-compose
+  464  export PATH=$PATH:/usr/local/bin/
+  465  docker-compose
+  466  chmod 755 /usr/local/bin/docker-compose
+  467  clear
+  468  docker-compose
+  469  history
+
+
+Commands:
+  build              Build or rebuild services
+  bundle             Generate a Docker bundle from the Compose file
+  config             Validate and view the Compose file
+  create             Create services
+  down               Stop and remove containers, networks, images, and volumes
+  events             Receive real time events from containers
+  exec               Execute a command in a running container
+  help               Get help on a command
+  images             List images
+  kill               Kill containers
+  logs               View output from containers
+  pause              Pause services
+  port               Print the public port for a port binding
+  ps                 List containers
+  pull               Pull service images
+  push               Push service images
+  restart            Restart services
+  rm                 Remove stopped containers
+  run                Run a one-off command
+  scale              Set number of containers for a service
+  start              Start services
+  stop               Stop services
+  top                Display the running processes
+  unpause            Unpause services
+  up                 Create and start containers
+  version            Show the Docker-Compose version information
+
+
+version: '2'
+services:
+  wordpress:
+    image: wordpress:latest # https://hub.docker.com/_/wordpress/
+    ports:
+      - 80:80 # change ip if required
+    volumes:
+      - ./wp-app:/var/www/html # Full wordpress project
+      #- ./plugin-name/trunk/:/var/www/html/wp-content/plugins/plugin-name # Plugin development
+      #- ./theme-name/trunk/:/var/www/html/wp-content/themes/theme-name # Theme development
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: password
+    depends_on:
+      - db
+    networks:
+      - wordpress-network
+  db:
+    image: mysql:latest # https://hub.docker.com/_/mysql/ - or mariadb https://hub.docker.com/_/mariadb
+    ports:
+      - 3306:3306 # change ip if required
+    volumes:
+      - ./wp-data:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - wordpress-network
+networks:
+  wordpress-network:
+      driver: bridge
+
+
+  459  docker-compose
+  460  cd
+  461  ls
+  462  sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  463  docker-compose
+  464  export PATH=$PATH:/usr/local/bin/
+  465  docker-compose
+  466  chmod 755 /usr/local/bin/docker-compose
+  467  clear
+  468  docker-compose
+  469  history
+  470  clear
+  471  docker-compose
+  472  clear
+  473  ls
+  474  docker-compose -v
+  475  docker-compose help
+  476  clear
+  477  ls
+  478  cd
+  479  ls
+  480  mkdir dc
+  481  cd dc/
+  482  clear
+  483  cd dc
+  484  ls
+  485  vi docker-compose.yaml
+  486  docker-compose build
+  487  docker-compose up -d
+  488  docker-compose ps
+  489  docker run -itd ubuntu
+  490  docker-compose ps
+  491  docker ps
+  492  clear
+  493  docker-compose ps
+  494  docker-compose logs
+  495  docker-compose ps
+  496  docker-compose logs
+  497  ls
+  498  vi docker-compose.yaml
+  499  vi docker-compose.yaml
+  500  docker-compose stop
+  501  docker-compose rm
+  502  docker-compose up -d
+  503  docker-compose ps
+  504  docker-compose logs
