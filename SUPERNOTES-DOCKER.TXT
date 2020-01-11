@@ -563,3 +563,128 @@ https://www.devopsschool.com/blog/docker-error-requires-container-selinux-22-74/
 
 https://www.devopsschool.com/videos/
 
+===================================================
+DAY 2
+Sharing a repo
+==============================
+Deepdive into Docker Networks
+Deepdive into Docker CPU and RAM allocations
+Deepdive into Docker Config
+Docker Compose 
+Setting up Docker Registry using Amazon ECS
+
+13.234.75.229
+
+Sharing a Images
+==============================
+- Using Tar ball
+- Using hub.docker.com
+- using Google Registry
+- Using docker Regirty
+- Using SOnatype Nexus
+- Using SonaType Artifactory
+- Using ECR
+
+
+- Using Tar ball
+=======================================================
+ 468  docker images
+  469  docker save -o new1.tar new1
+  470  ls
+  471  tar -xvf new1.tar dd
+  472  mkdir dd
+  473  tar -xvf new1.tar dd
+  474  mv new1.tar dd/
+  475  cd dd/
+  476  tar -xvf new1.tar
+  477  clear
+  478  ls
+  479  tree
+  480  yum install tree -y
+  481  clear
+  482  tree
+  483  clear
+  484  ls
+  485  cd ..
+  486  ls
+  487  cd dd/
+  488  clar
+  489  clear
+  490  docker ps -a
+  491  docker stop d0f744fcf621 ab6b94aa51a0 d0f77b11eb9c bb9861e9f15d
+  492  docker rm d0f744fcf621 ab6b94aa51a0 d0f77b11eb9c bb9861e9f15d
+  493  clear
+  494  docker images
+  495  docker rmi new1.tar
+  496  docker rmi new1
+  497  clear
+  498  docker images
+  499  ls
+  500  docker load -i new1.tar
+  501  docker images
+
+- Using hub.docker.com
+==========================================================
+1 Register at hub.docker.com
+2 create a repo
+3 Make sure your repo name must match with repo name of hub.docker.com
+
+  504  docker images
+  505  docker info
+  506  clear
+  507  docker images
+  508  docker tag new1 scmgalaxy/happy
+  509  docker images
+  510  docker tag new1 scmgalaxy/happy:v1
+  511  docker images
+  512  docker login
+  513  docker push scmgalaxy/happy
+  514  docker push scmgalaxy/happy:v1
+  515  docker logout
+  516  history
+
+- Using ECR
+=======================================
+1. Go to ECS
+2. Go to ECR
+3. Create a repo
+4. Install aws cli Client
+
+curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+5. Get your aws cli config done..
+    using Access Key ID: from IAM
+    using Access Key ID: from IAM
+
+aws configure
+
+docker tag new1 625097054767.dkr.ecr.ap-south-1.amazonaws.com/happy:latest
+
+ 519  curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  520  unzip awscliv2.zip
+  521  yum install unzup
+  522  yum install unzip
+  523  unzip awscliv2.zip
+  524  sudo ./aws/install
+  525  aws
+  526  aws2
+  527  /usr/local/bin/aws2
+  528  clear
+  529  ls
+  530  echo $PATH
+  531  export PATH=$PATH;/usr/local/bin/
+  532  export PATH=$PATH:/usr/local/bin/
+  533  aws
+  534  aws2
+  535  history
+  536  aws configure
+  537  aws2 configure
+  538  $(aws ecr get-login --no-include-email --region ap-south-1)
+  539  $(aws2 ecr get-login --no-include-email --region ap-south-1)
+  540  dockr images
+  541  docker images
+  542  docker tag new1 625097054767.dkr.ecr.ap-south-1.amazonaws.com/happy:latest
+  543  docker push 625097054767.dkr.ecr.ap-south-1.amazonaws.com/happy:latest
+  544  history
