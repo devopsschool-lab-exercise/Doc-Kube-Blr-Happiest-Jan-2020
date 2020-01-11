@@ -1,0 +1,254 @@
+Sharing a repo
+==============================
+Deepdive into Docker Networks
+Deepdive into Docker CPU and RAM allocations
+Deepdive into Docker Config
+Docker Compose 
+Setting up Docker Registry using Amazon ECS
+
+13.234.75.229
+
+Sharing a Images
+==============================
+- Using Tar ball
+- Using hub.docker.com
+- using Google Registry
+- Using docker Regirty
+- Using SOnatype Nexus
+- Using SonaType Artifactory
+- Using ECR
+
+
+- Using Tar ball
+=======================================================
+ 468  docker images
+  469  docker save -o new1.tar new1
+  470  ls
+  471  tar -xvf new1.tar dd
+  472  mkdir dd
+  473  tar -xvf new1.tar dd
+  474  mv new1.tar dd/
+  475  cd dd/
+  476  tar -xvf new1.tar
+  477  clear
+  478  ls
+  479  tree
+  480  yum install tree -y
+  481  clear
+  482  tree
+  483  clear
+  484  ls
+  485  cd ..
+  486  ls
+  487  cd dd/
+  488  clar
+  489  clear
+  490  docker ps -a
+  491  docker stop d0f744fcf621 ab6b94aa51a0 d0f77b11eb9c bb9861e9f15d
+  492  docker rm d0f744fcf621 ab6b94aa51a0 d0f77b11eb9c bb9861e9f15d
+  493  clear
+  494  docker images
+  495  docker rmi new1.tar
+  496  docker rmi new1
+  497  clear
+  498  docker images
+  499  ls
+  500  docker load -i new1.tar
+  501  docker images
+
+- Using hub.docker.com
+==========================================================
+1 Register at hub.docker.com
+2 create a repo
+3 Make sure your repo name must match with repo name of hub.docker.com
+
+  504  docker images
+  505  docker info
+  506  clear
+  507  docker images
+  508  docker tag new1 scmgalaxy/happy
+  509  docker images
+  510  docker tag new1 scmgalaxy/happy:v1
+  511  docker images
+  512  docker login
+  513  docker push scmgalaxy/happy
+  514  docker push scmgalaxy/happy:v1
+  515  docker logout
+  516  history
+
+- Using ECR
+=======================================
+1. Go to ECS
+2. Go to ECR
+3. Create a repo
+4. Install aws cli Client
+
+curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+
+5. Get your aws cli config done..
+    using Access Key ID: from IAM
+    using Access Key ID: from IAM
+
+aws configure
+
+docker tag new1 625097054767.dkr.ecr.ap-south-1.amazonaws.com/happy:latest
+
+ 519  curl "https://d1vvhvl2y92vvt.cloudfront.net/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  520  unzip awscliv2.zip
+  521  yum install unzup
+  522  yum install unzip
+  523  unzip awscliv2.zip
+  524  sudo ./aws/install
+  525  aws
+  526  aws2
+  527  /usr/local/bin/aws2
+  528  clear
+  529  ls
+  530  echo $PATH
+  531  export PATH=$PATH;/usr/local/bin/
+  532  export PATH=$PATH:/usr/local/bin/
+  533  aws
+  534  aws2
+  535  history
+  536  aws configure
+  537  aws2 configure
+  538  $(aws ecr get-login --no-include-email --region ap-south-1)
+  539  $(aws2 ecr get-login --no-include-email --region ap-south-1)
+  540  dockr images
+  541  docker images
+  542  docker tag new1 625097054767.dkr.ecr.ap-south-1.amazonaws.com/happy:latest
+  543  docker push 625097054767.dkr.ecr.ap-south-1.amazonaws.com/happy:latest
+  544  history
+
+
+1 3.6.88.227
+2 13.127.39.40
+3 13.233.113.80
+4 15.206.93.207
+5 13.235.99.204
+6 15.206.168.150
+7 13.233.196.175
+8 3.6.38.74
+9 13.127.58.131
+10 13.233.190.241
+11 52.66.211.29
+12 15.206.73.199
+13 3.6.37.65
+14 35.154.70.233
+15 13.233.31.191
+16 13.127.100.87
+17 13.234.38.26
+18 13.233.63.209
+19 13.232.190.140
+20 13.234.110.79
+21 13.235.99.244
+22 13.232.196.196
+23 13.233.132.64
+24 13.235.13.185
+25 13.234.33.7
+26 13.235.245.70
+27 15.206.74.199
+28 13.232.22.151
+29 13.127.3.237
+
+========================================
+Deepdive into Docker Networks
+==============================================
+- BRDIGE
+- Host
+- null
+===============================
+
+
+[root@ip-172-31-14-237 ec2-user]# docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+1d9a9d13fe83        bridge              bridge              local
+6bd93fd88eab        host                host                local
+133af4ffe4f9        none                null                local
+[root@ip-172-31-14-237 ec2-user]#
+
+"172.17.0.0/16"
+
+DEV - 172.18.0.1
+DEFAUKT - 172.17.0.1
+
+  466  docker network ls
+  467  docker inspect 1d9a9d13fe83
+  468  clear
+  469  ls
+  470  ifconfig
+  471  clear
+  472  l
+  473  docker inspect 1d9a9d13fe83
+  474  clear
+  475  ls
+  476  docker network ls
+  477  docker inspect 1d9a9d13fe83
+  478  clear
+  479  ls
+  480  ifconfig
+  481  clear
+  482  docker run -itd ubuntu
+  483  docker ps
+  484  docker inspect 5348a6876d5f
+  485  ifconfig
+  486  docker ps
+  487  docker attach 5348a6876d5f
+  488  docker network ls
+  489  clear
+  490  docker help network
+  491  docker network create dev --driver=bridge
+  492  docker network ls
+  493  docker inspect a72a80fa89d7
+  494  clear
+  495  docker network ls
+  496  docker run -itd --net=dev ubuntu
+  497  docker ps
+  498  docker rename c5df33f037a4 dev-network
+  499  docker rename 5348a6876d5f brdige-network
+  500  clear
+  501  docker ps
+  502  docker inspect c5df33f037a4
+  503  clear
+  504  docker ps
+  505  ifconfig
+  506  docker ps
+  507  clear
+  508  ifconfig
+  509  clear
+  510  docker ps
+  511  docker inspect c5df33f037a4
+  512  clear
+  513  ls
+  514  docker ps
+  515  docker attach 5348a6876d5f
+  516  history
+
+
+  464  docker ps -a
+  465  clear
+  466  ifconfig
+  467  docker network ls
+  468  docker network rm a72a80fa89d7
+  469  clear
+  470  docker network ls
+  471  ifconfig
+  472  clear
+  473  docker run -itd --net=host ubuntu
+  474  docker ps
+  475  clear
+  476  ifconfig
+  477  clear
+  478  docker ps
+  479  docker attach 2f9b32b99db2
+  480  docker run -itd --net=none ubuntu
+  481  docker ps
+  482  docker inspect 3d122f6cffb1
+  483  docker ps
+  484  docker inspect 2f9b32b99db2
+  485  history
+
+Notes -
+https://www.devopsschool.com/notes/docker/commands-collections/docker-networking.txt
