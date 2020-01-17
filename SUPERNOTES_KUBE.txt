@@ -235,3 +235,301 @@ Worker
 27 15.206.189.196
 28 13.233.126.175
 29 13.234.66.114
+==============================================
+
+EACH API RESOURCE -  C.R.U.D
+
+Create
+    - create
+    - run (Create and Run a container + Attach)
+READ 
+    - get
+    - describe
+    - logs
+UPDATE
+    - edit
+    - apply (Create if missing + UPDATE)
+DELETE
+    - delete
+
+===========
+NAME                              SHORTNAMES   APIGROUP                       NAMESPACED   KIND
+bindings                                                                      true         Binding
+componentstatuses                 cs                                          false        ComponentStatus
+configmaps                        cm                                          true         ConfigMap
+endpoints                         ep                                          true         Endpoints
+events                            ev                                          true         Event
+limitranges                       limits                                      true         LimitRange
+namespaces                        ns                                          false        Namespace
+nodes                             no                                          false        Node
+persistentvolumeclaims            pvc                                         true         PersistentVolumeClaim
+persistentvolumes                 pv                                          false        PersistentVolume
+pods                              po                                          true         Pod
+podtemplates                                                                  true         PodTemplate
+replicationcontrollers            rc                                          true         ReplicationController
+resourcequotas                    quota                                       true         ResourceQuota
+secrets                                                                       true         Secret
+serviceaccounts                   sa                                          true         ServiceAccount
+services                          svc                                         true         Service
+mutatingwebhookconfigurations                  admissionregistration.k8s.io   false        MutatingWebhookConfiguration
+validatingwebhookconfigurations                admissionregistration.k8s.io   false        ValidatingWebhookConfiguration
+customresourcedefinitions         crd,crds     apiextensions.k8s.io           false        CustomResourceDefinition
+apiservices                                    apiregistration.k8s.io         false        APIService
+controllerrevisions                            apps                           true         ControllerRevision
+daemonsets                        ds           apps                           true         DaemonSet
+deployments                       deploy       apps                           true         Deployment
+replicasets                       rs           apps                           true         ReplicaSet
+statefulsets                      sts          apps                           true         StatefulSet
+tokenreviews                                   authentication.k8s.io          false        TokenReview
+localsubjectaccessreviews                      authorization.k8s.io           true         LocalSubjectAccessReview
+selfsubjectaccessreviews                       authorization.k8s.io           false        SelfSubjectAccessReview
+selfsubjectrulesreviews                        authorization.k8s.io           false        SelfSubjectRulesReview
+subjectaccessreviews                           authorization.k8s.io           false        SubjectAccessReview
+horizontalpodautoscalers          hpa          autoscaling                    true         HorizontalPodAutoscaler
+cronjobs                          cj           batch                          true         CronJob
+jobs                                           batch                          true         Job
+certificatesigningrequests        csr          certificates.k8s.io            false        CertificateSigningRequest
+leases                                         coordination.k8s.io            true         Lease
+endpointslices                                 discovery.k8s.io               true         EndpointSlice
+events                            ev           events.k8s.io                  true         Event
+ingresses                         ing          extensions                     true         Ingress
+ingresses                         ing          networking.k8s.io              true         Ingress
+networkpolicies                   netpol       networking.k8s.io              true         NetworkPolicy
+runtimeclasses                                 node.k8s.io                    false        RuntimeClass
+poddisruptionbudgets              pdb          policy                         true         PodDisruptionBudget
+podsecuritypolicies               psp          policy                         false        PodSecurityPolicy
+clusterrolebindings                            rbac.authorization.k8s.io      false        ClusterRoleBinding
+clusterroles                                   rbac.authorization.k8s.io      false        ClusterRole
+rolebindings                                   rbac.authorization.k8s.io      true         RoleBinding
+roles                                          rbac.authorization.k8s.io      true         Role
+priorityclasses                   pc           scheduling.k8s.io              false        PriorityClass
+csidrivers                                     storage.k8s.io                 false        CSIDriver
+csinodes                                       storage.k8s.io                 false        CSINode
+storageclasses                    sc           storage.k8s.io                 false        StorageClass
+volumeattachments                              storage.k8s.io                 false        VolumeAttachment
+-
+===============================
+Compute
+    pods
+    replicationcontrollers
+    deployments
+    statefulsets
+    daemonsets
+    replicasets
+        SCALING
+            horizontalpodautoscalers
+
+Storage
+    persistentvolumes
+    persistentvolumeclaims
+    storageclasses
+    secrets
+    configmaps
+
+Netowoking
+    services
+    ingresses
+    ingresses
+
+Security
+    serviceaccounts
+    clusterroles
+    roles
+    clusterrolebindings
+    rolebindings
+Ops 
+    cronjobs
+    jobs
+    nodes
+    namespaces
+    limitranges
+
+===================================================
+Create
+    - create
+    - run (Create and Run a container + Attach)
+READ 
+    - get
+    - describe
+    - logs
+UPDATE
+    - edit
+    - apply (Create if missing + UPDATE)
+USE
+    GO INSIDE
+        exec 
+        attach
+    ACCESS FROM OUTSIDE
+        ssh
+        curl
+DELETE
+    - delete
+
+=============================================
+How to call API?=========== POD
+    kubectl
+            - CMD  - NA
+            - YAML
+            - JSON
+
+pod.yaml
+-------------
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-pod
+  labels: 
+    app: webserver
+spec:
+  containers:
+  - name: hello-ctr
+    image: nginx
+    ports:
+    - containerPort: 80
+
+ 76  clear
+   77  kubectl
+   78  kubectl explain pod
+   79  kubectl explain pod.spec
+   80  kubectl explain pod.spec.containers
+
+
+   91  kubectl create namespace
+   92  kubectl create namespace dev
+   93  kubectl create namespace qa
+   94  kubectl get ns
+   95  kubectl create -f pod1.yaml
+   96  kubectl get pods
+   97  kubectl describe pod hello-pod
+   98  kubectl create -f pod1.yaml -n=dev
+   99  clear
+  100  kubectl get pods
+  101  kubectl get pods -n=dev
+  102  kubectl get pods --all-namespaces
+  103  historey
+  104  history
+    104  history
+  105  clear
+  106  kubectl get ns
+  107  kubectl delete ns qa
+  108  kubectl get ns
+  109  kubectl delete ns dev
+  110  kubectl get ns
+  111  clear
+  112  ls
+  113  clear
+  114  kubectl get pods
+  115  kubectl logs hello-pod
+  116  kubectl
+  117  clear
+  118  kubectl get pods
+  119  kubectl edit pod hello-pod
+  120  kubectl describe pod hello-pod
+  121  ls
+  122  clear
+  123  lws
+  124  ls
+  125  vi pod1.yaml
+  126  kubectl apply -f pod1.yaml
+  127  kubectl describe pod hello-pod
+  128  clear
+  129  kubectl
+  130  kubectl get pods
+  131  kubectl exec -it hello-pod /bin/bash
+  132  kubectl attch hello-pod
+  133  kubectl attach hello-pod
+  134  kubectl logs hello-pod
+  135  history
+
+
+
+=================RC==================================
+Replication
+Controller
+
+
+Create
+    - create
+READ 
+    - get
+    - describe
+UPDATE
+    - edit
+    - apply (Create if missing + UPDATE)
+USE
+    scale
+DELETE
+    - delete
+
+rc.yaml
+===========================
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: hello-rc
+spec:
+  replicas: 2   
+  template:
+    metadata:
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - name: hello-ctr
+        image: nginx
+        ports:
+        - containerPort: 80
+
+ 132  kubectl attch hello-pod
+  133  kubectl attach hello-pod
+  134  kubectl logs hello-pod
+  135  history
+  136  clear
+  137  kubectl create
+  138  clear
+  139  ls
+  140  vi rc.yaml
+  141  kubectl create -f rc.yaml
+  142  kubectl get rc
+  143  kubectl get pods
+  144  kubectl delete pod hello-pod
+  145  kubectl get pods
+  146  kubectl get pods hello-rc-c2znr
+  147  kubectl delete pod  hello-rc-c2znr
+  148  kubectl get pods hello-rc-c2znr
+  149  kubectl get pods
+  150  clear
+  151  kubectl get rc
+  152  kubectl edit rc hello-rc
+  153  kubectl get pods
+  154  clear
+  155  kubectl get pods
+  156  clear
+  157  kubectl get pods
+  158  clear
+  159  kubectl get pods
+  160  clear
+  161  kubectl get pods
+  162  ls
+  163  vi rc.yaml
+  164  kubeclt create -f rc.yaml
+  165  kubectl apply  -f rc.yaml
+  166  clear
+  167  kubectl get pods
+  168  clear
+  169  kubectl
+  170  clear
+  171  kubectl scale
+  172  clear
+  173  kubectl get rc
+  174  kubectl scale --replicas=50Wq rc/hello-rc
+  175  kubectl scale --replicas=50 rc/hello-rc
+  176  kubectl get rc
+  177  kubectl get pods
+  178  kubectl get pods | grep Running | wc -l
+  179  clear
+  180  ls
+  181  vi rc.yaml
+  182  kubectl apply  -f rc.yaml
+  183  kubectl get rc
+  184  history
