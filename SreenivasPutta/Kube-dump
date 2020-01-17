@@ -1,0 +1,28 @@
+Ref: https://www.devopsschool.com/blog/setting-up-kubernetes-clusters-using-kubeadm-manual-way-in-rhel-7-centos7/   
+   
+   19  setenforce 0
+   20  sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+   21  yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+   22  systemctl enable --now kubelet
+   23  kubeadm init --ignore-preflight-errors all
+   24  hostnamectl
+   25  hostnamectl set-hostname localhost
+   26  hostnamectl
+   27  kubeadm init --ignore-preflight-errors all
+   28  ifconfig
+   29  hostnamectl
+   30  kubeadm init --ignore-preflight-errors all
+   31  docker rm -f -v $(docker ps -q)
+   32  docker container ls
+   33  docker container -ls
+   34  docker ls
+   35  docker images
+   36  sudo systemctl start docker
+   37  hostnamectl set-hostname rajesh.master.com
+   38  kubeadm init --ignore-preflight-errors all
+   39  mkdir -p $HOME/.kube
+   40  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   41  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   42  kubectl get nodes
+   43  kubectl get pods --all-namespaces
+   44  history
