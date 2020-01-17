@@ -1,0 +1,204 @@
+Kubernet Master
+    API SERVER      -> POD -> Container --> Image -> GR  
+    ETCD            -> POD -> Container --> Image -> GR 
+    Controller Mgr  -> POD -> Container --> Image -> GR 
+    Schedular       -> POD -> Container --> Image -> GR 
+
+    Kubelet         - AGENT - TOOL
+    Kube Proxy      -> POD -> Container --> Image -> GR 
+    Docker          - AGENT - TOOL
+Kubernet Worker
+    Kubelet
+    Docker
+    Kube Proxy      -> POD -> Container --> Image -> GR 
+
+Workstation
+
+
+API OBJECTS -> 
+            POD ->      Container -> 
+            Kubelet     docker
+
+When 
+    Kubernet Master + Kubernet Worker IN One VM.
+    -- minikube
+
+    PAAS
+        AWS - EKS
+        Auzre - AKS
+        GC -> GKE
+    
+    On Prem - Manual
+        using Kubeadm
+
+    Master Control + On Cloud
+        KOPS
+
+    HARDWAY - 
+
+Reference
+https://www.devopsschool.com/videos/
+https://www.youtube.com/channel/UCrXr49kBvXJeQMMl2693c4g/videos
+https://www.devopsschool.com/tutorial/kubernetes/eks-setup-configure.html
+https://www.devopsschool.com/tutorial/kubernetes
+
+Setting up kubernetes clustor using Kubeadm.
+
+What is Kubeadm?
+        Create 
+        edit
+        security
+        delete
+https://github.com/kubernetes/kubeadm
+https://kubernetes.io/docs/setup/
+
+AMI - RHEL-7.5_HVM_GA-20180322-x86_64-1-Hourly2-GP2 (ami-5b673c34)
+13.232.189.49
+
+Setting up Kubernetes Clusters using Kubeadm Manual way in RHEL 7 / Centos7
+https://www.devopsschool.com/blog/setting-up-kubernetes-clusters-using-kubeadm-manual-way-in-rhel-7-centos7/
+
+
+Setting up Kubernetes Clusters using Kubeadm Manual way in Ubuntu 16.04 Xenial
+https://www.devopsschool.com/blog/setting-up-kubernetes-clusters-using-kubeadm-manual-way-in-ubuntu-16-04-xenial/
+
+
+To start using your cluster, you need to run the following as a regular user:
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+You should now deploy a pod network to the cluster.
+Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+  https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+Then you can join any number of worker nodes by running the following on each as root:
+
+kubeadm join 172.31.23.27:6443 --token y1dya4.2srr2o0smbrhi4r1 \
+    --discovery-token-ca-cert-hash sha256:751f24189a4e7d4581887d57f6f16985d49efc7f5b888b76ad354a33a84c926e
+# https://www.devopsschool.com/blog/detailed-explaination-of-joining-kubernetes-nodes-aka-workers-in-kubernetes-master/
+
+
+Workstation - DONE
+            kubectl
+                    config
+                        - ~/.kube/config
+                        - ./.kube/config
+                        - KUBECONFIG
+
+What is the content of config?
+----
+CLUSTOR(S)
+    CLUSTOR 1
+    CLUSTOR 2
+    CLUSTOR 3
+USER (S)
+    USER 1
+    USER 2
+    USER 3
+CONTEXT(S)
+    CONTEXT 1 = CLUSTOR 1 + USER 2
+    CONTEXT 2 = CLUSTOR 2 + USER 1
+    CONTEXT 3 = CLUSTOR 3 +  USER 3
+
+curr-context CONTEXT 3
+
+  2  kubectl get pod
+    3  kubectl get ns
+    4  kubectl get ns -n=kube-system
+    5  kubectl get pods -n=kube-system
+    6  history
+
+kubectl
+kubectl help
+cluster-info
+kubectl api-resources
+kubectl api-versions
+kubectl get
+kubectl get pods
+kubectl get ns
+kubectl get pods -n=kube-system
+kubectl get rc
+kubectl get deploy
+kubectl get svc
+kubectl get nodes
+
+EACH API RESOURCE -  C.R.U.D
+
+Create
+    - create
+    - run (Create and Run a container + Attach)
+READ 
+    - get
+    - describe
+    - logs
+UPDATE
+    - edit
+    - apply (Create if missing + UPDATE)
+DELETE
+    - delete
+
+How to troublshoot?
+===========================
+
+
+Worker
+13.233.116.185
+
+
+
+
+
+
+
+
+EACH OBJECT C.R.U.D
+
+Create
+
+READ 
+
+UPDATE
+
+DELETE
+
+
+1 13.232.88.205
+2 13.233.130.75
+3 13.235.247.3
+4 13.235.135.200
+5 15.206.124.53
+6 13.127.11.161
+7 13.235.100.167
+8 52.66.201.210
+9 13.233.3.18
+10 13.126.120.0
+11 35.154.106.213
+12 13.234.20.9
+13 13.232.121.120
+14 13.234.20.36
+15 13.126.152.79
+16 13.233.55.29
+17 13.232.153.111
+18 3.6.89.125
+19 15.206.168.107
+20 13.126.163.79
+21 52.66.81.92
+22 13.232.61.26
+23 13.233.149.232
+24 13.234.204.77
+25 35.154.62.99
+26 13.233.141.48
+27 13.235.128.93
+28 35.154.153.111
+29 52.66.49.230
+
+USER
+ec2-user
+
+key
+https://www.devopsschool.com/notes/docker/2019/
+rajesh-mumbai.pem
+rajesh-mumbai.ppk
+
