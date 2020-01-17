@@ -1,0 +1,40 @@
+[ec2-user@ip-172-31-29-84 ~]$ kubectl get pods -n=kube-system
+NAME                                                                  READY   STATUS              RESTARTS   AGE
+coredns-6955765f44-4xtsh                                              0/1     Pending             0          11m
+coredns-6955765f44-9j4jm                                              0/1     Pending             0          11m
+etcd-ip-172-31-29-84.ap-south-1.compute.internal                      1/1     Running             0          11m
+kube-apiserver-ip-172-31-29-84.ap-south-1.compute.internal            1/1     Running             0          11m
+kube-controller-manager-ip-172-31-29-84.ap-south-1.compute.internal   1/1     Running             0          11m
+kube-proxy-7vtc5                                                      1/1     Running             0          11m
+kube-scheduler-ip-172-31-29-84.ap-south-1.compute.internal            1/1     Running             0          11m
+weave-net-snxqf                                                       0/2     ContainerCreating   0          10s
+[ec2-user@ip-172-31-29-84 ~]$ kubectl get pods -n=kube-system
+NAME                                                                  READY   STATUS    RESTARTS   AGE
+coredns-6955765f44-4xtsh                                              0/1     Pending   0          11m
+coredns-6955765f44-9j4jm                                              0/1     Pending   0          11m
+etcd-ip-172-31-29-84.ap-south-1.compute.internal                      1/1     Running   0          11m
+kube-apiserver-ip-172-31-29-84.ap-south-1.compute.internal            1/1     Running   0          11m
+kube-controller-manager-ip-172-31-29-84.ap-south-1.compute.internal   1/1     Running   0          11m
+kube-proxy-7vtc5                                                      1/1     Running   0          11m
+kube-scheduler-ip-172-31-29-84.ap-south-1.compute.internal            1/1     Running   0          11m
+weave-net-snxqf                                                       1/2     Running   0          16s
+[ec2-user@ip-172-31-29-84 ~]$ kubectl get pods -n=kube-system
+NAME                                                                  READY   STATUS              RESTARTS   AGE
+coredns-6955765f44-4xtsh                                              0/1     ContainerCreating   0          11m
+coredns-6955765f44-9j4jm                                              0/1     ContainerCreating   0          11m
+etcd-ip-172-31-29-84.ap-south-1.compute.internal                      1/1     Running             0          11m
+kube-apiserver-ip-172-31-29-84.ap-south-1.compute.internal            1/1     Running             0          11m
+kube-controller-manager-ip-172-31-29-84.ap-south-1.compute.internal   1/1     Running             0          11m
+kube-proxy-7vtc5                                                      1/1     Running             0          11m
+kube-scheduler-ip-172-31-29-84.ap-south-1.compute.internal            1/1     Running             0          11m
+weave-net-snxqf                                                       1/2     Running             0          19s
+[ec2-user@ip-172-31-29-84 ~]$ kubectl get pods -n=kube-system
+NAME                                                                  READY   STATUS    RESTARTS   AGE
+coredns-6955765f44-4xtsh                                              0/1     Running   0          11m
+coredns-6955765f44-9j4jm                                              0/1     Running   0          11m
+etcd-ip-172-31-29-84.ap-south-1.compute.internal                      1/1     Running   0          11m
+kube-apiserver-ip-172-31-29-84.ap-south-1.compute.internal            1/1     Running   0          11m
+kube-controller-manager-ip-172-31-29-84.ap-south-1.compute.internal   1/1     Running   0          11m
+kube-proxy-7vtc5                                                      1/1     Running   0          11m
+kube-scheduler-ip-172-31-29-84.ap-south-1.compute.internal            1/1     Running   0          11m
+weave-net-snxqf                                                       2/2     Running   0          21s

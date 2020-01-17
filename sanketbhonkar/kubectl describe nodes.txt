@@ -1,0 +1,80 @@
+[ec2-user@ip-172-31-29-84 ~]$ kubectl describe nodes ip-172-31-29-84.ap-south-1.compute.internal
+Name:               ip-172-31-29-84.ap-south-1.compute.internal
+Roles:              master
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/arch=amd64
+                    kubernetes.io/hostname=ip-172-31-29-84.ap-south-1.compute.internal
+                    kubernetes.io/os=linux
+                    node-role.kubernetes.io/master=
+Annotations:        kubeadm.alpha.kubernetes.io/cri-socket: /var/run/dockershim.sock
+                    node.alpha.kubernetes.io/ttl: 0
+                    volumes.kubernetes.io/controller-managed-attach-detach: true
+CreationTimestamp:  Fri, 17 Jan 2020 07:07:47 +0000
+Taints:             node-role.kubernetes.io/master:NoSchedule
+                    node.kubernetes.io/not-ready:NoSchedule
+Unschedulable:      false
+Lease:
+  HolderIdentity:  ip-172-31-29-84.ap-south-1.compute.internal
+  AcquireTime:     <unset>
+  RenewTime:       Fri, 17 Jan 2020 07:14:40 +0000
+Conditions:
+  Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+  ----             ------  -----------------                 ------------------                ------                       -------
+  MemoryPressure   False   Fri, 17 Jan 2020 07:13:01 +0000   Fri, 17 Jan 2020 07:07:41 +0000   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Fri, 17 Jan 2020 07:13:01 +0000   Fri, 17 Jan 2020 07:07:41 +0000   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  PIDPressure      False   Fri, 17 Jan 2020 07:13:01 +0000   Fri, 17 Jan 2020 07:07:41 +0000   KubeletHasSufficientPID      kubelet has sufficient PID available
+  Ready            False   Fri, 17 Jan 2020 07:13:01 +0000   Fri, 17 Jan 2020 07:07:41 +0000   KubeletNotReady              runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+Addresses:
+  InternalIP:  172.31.29.84
+  Hostname:    ip-172-31-29-84.ap-south-1.compute.internal
+Capacity:
+  cpu:                2
+  ephemeral-storage:  31444972Ki
+  hugepages-2Mi:      0
+  memory:             3879576Ki
+  pods:               110
+Allocatable:
+  cpu:                2
+  ephemeral-storage:  28979686148
+  hugepages-2Mi:      0
+  memory:             3777176Ki
+  pods:               110
+System Info:
+  Machine ID:                 18217935778b4f7bac1d1daf0edb0f1c
+  System UUID:                EC20F6FE-37FD-38C5-C568-193B6F2E9493
+  Boot ID:                    9c107c55-8665-4b6a-b6c0-2d4796db4d6f
+  Kernel Version:             3.10.0-862.el7.x86_64
+  OS Image:                   Red Hat Enterprise Linux Server 7.5 (Maipo)
+  Operating System:           linux
+  Architecture:               amd64
+  Container Runtime Version:  docker://19.3.5
+  Kubelet Version:            v1.17.1
+  Kube-Proxy Version:         v1.17.1
+Non-terminated Pods:          (5 in total)
+  Namespace                   Name                                                                   CPU Requests  CPU Limits  Memory Requests  Memory Limits  AGE
+  ---------                   ----                                                                   ------------  ----------  ---------------  -------------  ---
+  kube-system                 etcd-ip-172-31-29-84.ap-south-1.compute.internal                       0 (0%)        0 (0%)      0 (0%)           0 (0%)         6m50s
+  kube-system                 kube-apiserver-ip-172-31-29-84.ap-south-1.compute.internal             250m (12%)    0 (0%)      0 (0%)           0 (0%)         6m50s
+  kube-system                 kube-controller-manager-ip-172-31-29-84.ap-south-1.compute.internal    200m (10%)    0 (0%)      0 (0%)           0 (0%)         6m50s
+  kube-system                 kube-proxy-7vtc5                                                       0 (0%)        0 (0%)      0 (0%)           0 (0%)         6m43s
+  kube-system                 kube-scheduler-ip-172-31-29-84.ap-south-1.compute.internal             100m (5%)     0 (0%)      0 (0%)           0 (0%)         6m50s
+Allocated resources:
+  (Total limits may be over 100 percent, i.e., overcommitted.)
+  Resource           Requests    Limits
+  --------           --------    ------
+  cpu                550m (27%)  0 (0%)
+  memory             0 (0%)      0 (0%)
+  ephemeral-storage  0 (0%)      0 (0%)
+Events:
+  Type    Reason                   Age                    From                                                     Message
+  ----    ------                   ----                   ----                                                     -------
+  Normal  NodeHasSufficientMemory  6m59s (x5 over 6m59s)  kubelet, ip-172-31-29-84.ap-south-1.compute.internal     Node ip-172-31-29-84.ap-south-1.compute.internal status is now: NodeHasSufficientMemory
+  Normal  NodeHasNoDiskPressure    6m59s (x5 over 6m59s)  kubelet, ip-172-31-29-84.ap-south-1.compute.internal     Node ip-172-31-29-84.ap-south-1.compute.internal status is now: NodeHasNoDiskPressure
+  Normal  NodeHasSufficientPID     6m59s (x4 over 6m59s)  kubelet, ip-172-31-29-84.ap-south-1.compute.internal     Node ip-172-31-29-84.ap-south-1.compute.internal status is now: NodeHasSufficientPID
+  Normal  Starting                 6m50s                  kubelet, ip-172-31-29-84.ap-south-1.compute.internal     Starting kubelet.
+  Normal  NodeHasSufficientMemory  6m50s                  kubelet, ip-172-31-29-84.ap-south-1.compute.internal     Node ip-172-31-29-84.ap-south-1.compute.internal status is now: NodeHasSufficientMemory
+  Normal  NodeHasNoDiskPressure    6m50s                  kubelet, ip-172-31-29-84.ap-south-1.compute.internal     Node ip-172-31-29-84.ap-south-1.compute.internal status is now: NodeHasNoDiskPressure
+  Normal  NodeHasSufficientPID     6m50s                  kubelet, ip-172-31-29-84.ap-south-1.compute.internal     Node ip-172-31-29-84.ap-south-1.compute.internal status is now: NodeHasSufficientPID
+  Normal  NodeAllocatableEnforced  6m50s                  kubelet, ip-172-31-29-84.ap-south-1.compute.internal     Updated Node Allocatable limit across pods
+  Normal  Starting                 6m42s                  kube-proxy, ip-172-31-29-84.ap-south-1.compute.internal  Starting kube-proxy.
