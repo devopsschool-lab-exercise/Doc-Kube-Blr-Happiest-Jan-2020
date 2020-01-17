@@ -533,3 +533,195 @@ spec:
   182  kubectl apply  -f rc.yaml
   183  kubectl get rc
   184  history
+============================================================
+Deployment
+    Replication usign ReplicaSet
+    Controller using deployment controller
+    Rollout
+    Versioning
+    RollBack
+
+Create
+    - create
+READ 
+    - get
+    - describe
+UPDATE
+    - edit
+    - apply (Create if missing + UPDATE)
+USE
+    scale
+DELETE
+    - delete
+
+
+Service
+
+Image
+scmgalaxy/nginx-devopsschoolv1
+scmgalaxy/nginx-devopsschoolv2
+
+
+kubectl rollout status deploy/cheating
+kubectl rollout history deploy/cheating
+kubectl rollout undo deploy/cheating --to-revision=1
+
+kubectl scale --replicas=10 deploy/cheating
+
+
+   70  ls
+   71  kubectl create deployment
+   72  kubectl create deployment --help
+   73  kubectl create deployment my-dep --image=nginx
+   74  clear
+   75  kubetctl get deploy
+   76  kubectl get deploy
+   77  kubectl get pod
+   78  kubectl get pod -o wide
+   79  kubectl explain deploy
+   80  kubectl explain deploy.spec
+   81  kubectl explain deploy.spec.template
+   82  kubectl explain deploy.spec.template.spec
+   83  clear
+   84  ls
+   85  kubectl get deploy
+   86  kubectl get deploy my-dep
+   87  kubectl get deploy my-dep --o yaml
+   88  kubectl get deploy my-dep -o yaml
+   89  kubectl get deploy my-dep -o yaml --export
+   90  clear
+   91  kubectl get deploy my-dep -o yaml --export >> dep1.yaml
+   92  ls
+   93  vi dep1.yaml
+   94  kubectl create -f dep1.yaml
+   95  kubectl get pod
+   96  kubectl get deploy
+   97  kubectl describe deploy cheating
+   98  kubectl get rs
+   99*
+  100  ls
+  101  kubectl edit deploy cheating
+  102  kubectl get deploy
+  103  kubectl get pods
+  104  clear
+  105  kubectl get pods
+  106  clear
+  107  kubectl get pods
+  108  clear
+  109  kubectl get pods
+  110  clear
+  111  kubectl get pods
+  112  kubectl delete pod cheating-6589b6f7dc-6sj5b
+  113  kubectl get pods
+  114  kubectl scale
+  115  clear
+  116  kubectl get deploy
+  117  kubectl scale --replicas=3 rs/foo
+  118  kubectl scale --replicas=3 deploy/cheating
+  119  kubectl get deploy
+  120  clear
+  121  ls
+  122  kubectl get deploy
+  123  kubectl delete -f dep1.yaml
+  124  kubectl delete deploy my-dep
+  125  kubectl get deploy
+  126  kubectl get pods
+  127  clear
+  128  ls
+  129  kubectl get deploy
+  130  ls
+  131  more dep1.yaml
+  132  clear
+  133  ls
+  134  clear
+  135  vi dep1.yaml
+  136  kubectl
+  137  kubectl rollout
+  138  ks
+  139  clear
+  140  more dep1.yaml
+  141  !
+  142  clear
+  143  ls
+  144  kubectl apply -f dep1.yaml
+  145  kubectl deploy
+  146  kubectl get deploy
+  146  kubectl get deploy
+  147  history
+  148  clear
+  149  kubectl scale
+  150  kubectl scaleclear
+  151  clear
+  152  kubectl scale --replicas=10 deploy/my-dep
+  153  kubectl get deploy
+  154  kubectl scale --replicas=10 deploy/cheating
+  155  kubectl get deploy
+  156  clear
+  157  kubectl rollout status deploy/my-dep
+  158  kubectl rollout status deploy/cheating
+  159  kubectl get deploy
+  160  kubectl scale --replicas=20 deploy/cheating
+  161  kubectl rollout status deploy/cheating
+  162  kubectl rollout history deploy/cheating
+  163  vi dep1.yaml
+  164  kubectl apply -f dep1.yaml
+  165* kubectl
+  166  kubectl rollout status deploy/cheating
+  167  kubectl get pods
+  168  kubectl get pods -o wide
+  169  curl http://10.44.0.4
+  170  kubectl scale --replicas=20 deploy/cheating
+  171  clear
+  172  kubectl rollout undo
+  173  kubectl rollout undo --help
+  174  clear
+  175  kubectl rollout undo deploy/cheating --to-revision=1
+  176  kubectl rollout status deploy/cheating
+  177  kubectl get pods -o wide
+  178  curl http://10.44.0.23
+  179  clear
+  180  history
+===================================================
+
+ 79  ls
+   80  kubectl create -f pod1.yaml
+   81  clear
+   82  kubectl get pods
+   83  kubectl get pods --show-lables
+   84  kubectl get pods --show-labels
+   85  kubectl create
+   86  clear
+   87  kubectl create service
+   88  kubectl create service clusterip
+   89  kubectl create service clusterip rajesh
+   90  kubectl create service clusterip rajesh --help
+   91  clear
+   92  kubectl create service clusterip rajesh --tcp=5678:80
+   93  kubectl get svc
+   94  ping 10.100.16.181
+   95  curl http://10.100.16.181
+   96*
+   97  kubectl describe svc rajesh
+   98  kubectl get pods --show-lables
+   99  kubectl get pods --show-labels
+  100  clear
+  101  kubectl get pods --show-labels
+  102  kubectl get svc --show-labels
+  103  kubectl describe svc rajesh
+  104  kubectl edit svc rajesh
+  105  kubectl describe svc rajesh
+  106  curl http://10.100.16.181
+  107  curl http://10.100.16.181:5678
+  108  history
+
+
+
+
+
+
+
+
+
+
+
+
